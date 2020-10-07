@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "someApp"
+    }
+  },
+  "defaultProject": "someApp",
+  "cli": {
+    "analytics": false
+  }
 }
