@@ -1,0 +1,9 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "ng serve"
+    }
+  },
+  "identifier" : "059F2828-42A1-487B-829A-260467A5FEA1"
+}
