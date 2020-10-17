@@ -1,7 +1,52 @@
-<div>hello {{ name }}</div>
+<div class="container">
+  <p [innerHTML]="serverNme"></p>
+  <img [src]="logo" style="max-width: 100px" />
 
-<input type="text" value="{{ name }}" />
+  <!-- name stuff -->
+  <!-- value="{{ name }}" -->
+  <!-- [value]="name" -->
+  <!-- (blur)="handleBlur($event)" -->
+  <!-- (input)="handleInput($event)" -->
+  <!-- (input)="handleChange($event)" -->
+  <input
+    type="text"
+    class="form-control"
+    [ngModel]="name"
+    (ngModelChange)="handleChange($event)"
+  />
+  <input type="text" class="form-control" [(ngModel)]="name" />
+  <h1>{{ showPocket ? "Hello" : "" }} {{ name }}</h1>
+  <!-- END name stuff -->
 
-<button (click)="submit()">Submit</button>
+  <!-- other stuff -->
+  <p [innerText]="!enableButton"></p>
+  <button
+    [disabled]="!enableButton"
+    (click)="handleClick()"
+    type="button"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+  <!-- END other stuff -->
 
-<app-pocket></app-pocket>
+  <div *ngIf="showPocket">
+    <passenger-dashboard></passenger-dashboard>
+  </div>
+
+  <!-- element ref stuff -->
+  <h4 style="margin-top: 50px">Ref stuff</h4>
+  <input type="text" class="form-control" #someName />
+  <button
+    (click)="handleRefClick(someName.value)"
+    type="button"
+    class="btn btn-primary"
+  >
+    Submit
+  </button>
+  <!-- END element ref stuff -->
+</div>
+
+
+
+

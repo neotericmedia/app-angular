@@ -1,0 +1,37 @@
+<ul style="margin-top: 30px">
+  <li>
+    <div *ngIf="editing">
+      <input
+        type="text"
+        [value]="detail.fullName"
+        (input)="onNameChange(name.value)"
+        #name
+      />
+    </div>
+
+    <h3 else>
+      {{ detail.fullName }}
+    </h3>
+
+    <span class="status" [class.checked-in]="detail.checkedIn"></span>
+
+    <div class="date">
+      Check in date:
+      {{
+        detail.checkInDate
+          ? (detail.checkInDate | date: "yMMMMd" | uppercase)
+          : "Not checked in"
+      }}
+    </div>
+
+    <div class="children">Children: {{ detail.children?.length || 0 }}</div>
+
+    <button type="button" class="btn btn-primary" (click)="editingToggle()">
+      {{ editing ? "Done" : "Edit" }}
+    </button>
+
+    <button type="button" class="btn btn-secondary" (click)="onRemove()">
+      Remove
+    </button>
+  </li>
+</ul>
